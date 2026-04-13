@@ -6,27 +6,26 @@ import (
 	"strings"
 )
 
-func main () {
-
+func main() {
 	if len(os.Args) > 2 {
-		fmt.Printf("Usage: go run . <filename>.txt")
+		fmt.Println("usage : go run . <filename>.txt")
+		return
+	}
+	filename := os.Args[1]
+	output := "upper_output.txt"
+
+	data, err := os.ReadFile(filename)
+	if err != nil {
+		fmt.Printf("Error reading file%s", err)
 		return
 	}
 
-	input := os.Args[1]
-	output := "upper_content.txt"
+	upperContent := strings.ToUpper(string(data))
 
-	data, err := os.ReadFile(input)
+	err = os.WriteFile(output, []byte(upperContent), 0644)
 	if err != nil {
 		fmt.Printf("Error reading file %s\n", err)
 		return
 	}
-	upper_content := strings.ToUpper(string(data))
-
-	err = os.WriteFile(output, []byte(upper_content), 0644)
-	if err != nil {
-		fmt.Printf("Error reading file%s\n", err)
-		return
-	}
-	fmt.Printf("Sucess! Upper case content saved to %s\n", output)
+	
 }

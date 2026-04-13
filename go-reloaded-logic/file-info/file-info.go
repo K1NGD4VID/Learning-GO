@@ -6,35 +6,37 @@ import (
 	"strings"
 )
 
-func main(){
+func main () {
 	if len(os.Args) > 2 {
-		fmt.Println("Usage: go run . <filename>")
+		fmt.Println("Please provide a filename")
 		return
 	}
-	file := os.Args[1]
-	output := "stats.txt"
-	
-	data, err := os.ReadFile(file)
+
+	filename  := os.Args[1]
+	output := "stat.txt"
+
+	data, err := os.ReadFile(filename)
 	if err != nil {
 		fmt.Printf("Error reading file %s\n", err)
 		return
 	}
-
 	content := string(data)
-
 	charCount := len(content)
 
-	words := strings.Fields(content)
+	words:= strings.Fields(content)
 	wordCount := len(words)
 
 	lines := strings.Split(content, "\n")
-	lineCount := len(lines)
+	lenLines := len(lines)
 
-	summary := fmt.Sprintf(
-		"File : %s\nCharcaters: %d\nWords, %d\nlines, %d\n",
-		file, charCount, wordCount, lineCount,
+	summary := fmt.Sprintf("File: %s\nCharacters: %d\nWords: %d\nLines: %d\n",
+							filename, charCount, wordCount, lenLines,
 	)
 
 	err = os.WriteFile(output, []byte(summary), 0644)
-	fmt.Println("Stats saved to stats.txt")
+	if err != nil {
+		fmt.Printf("error reading file %s\n", err)
+		return
+	}
+	fmt.Println("Summary successfully written to stats.txt")
 }
