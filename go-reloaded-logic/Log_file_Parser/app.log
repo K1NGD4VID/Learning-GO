@@ -1,0 +1,5 @@
+[ERROR] 2024-01-15 server crashed on port 8080
+[INFO] 2024-01-15 user login successful
+[ERROR] 2024-01-16 database connection failed
+[WARNING] 2024-01-16 memory usage high
+[INFO] 2024-01-16 backup completed
