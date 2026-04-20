@@ -1,4 +1,4 @@
 File: sample.txt
-Characters: 396
+Characters: 376
 Words: 61
 Lines: 21
