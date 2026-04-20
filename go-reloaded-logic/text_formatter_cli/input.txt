@@ -1,0 +1,3 @@
+hello world (reverse)
+the price is 100 (double)
+go is great (shout)
