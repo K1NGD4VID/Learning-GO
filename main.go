@@ -1,14 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
+func joinWords(words []string) string {
+
+	return strings.Join(words, " ")
+}
 func main() {
-	items := 3
-	pricePeritem := 50
-
-	if total := items * pricePeritem; total >= 100 {
-		fmt.Println("Eligible for shipping", total)
-	} else {
-		fmt.Println("Not Eligible for shipping", total)
-	}
+	words := []string{"samuel", "is", "a", "bitch"}
+	fmt.Println(joinWords(words))
 }
